@@ -82,6 +82,10 @@ static void connect_wifi()
   Serial.print(WIFI_SSID);
   Serial.println("'");
 
+  #ifdef HOSTNAME
+  WiFi.setHostname(HOSTNAME);
+  #endif
+  
   WiFi.begin(WIFI_SSID, WIFI_PASSWORD);
   while (WiFi.status() != WL_CONNECTED) {
     delay(250);
